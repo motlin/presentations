@@ -1,0 +1,28 @@
+# dependencies
+/node_modules
+
+# Build outputs
+dist/
+# Ignore HTML files but not templates
+/*.html
+/presentations/*.html
+*.pdf
+*.pptx
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.swp
+
+*.envrc

@@ -1,0 +1,15 @@
+{
+  "name": "marp-presentation",
+  "version": "1.0.0",
+  "description": "Claude Code presentation using Marp",
+  "scripts": {
+    "build": "marp claude-code-presentation.md --html",
+    "build:pdf": "marp claude-code-presentation.md --pdf",
+    "build:pptx": "marp claude-code-presentation.md --pptx",
+    "watch": "marp claude-code-presentation.md --html --watch",
+    "serve": "marp claude-code-presentation.md --html --server"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.2.3"
+  }
+}
