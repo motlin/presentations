@@ -174,11 +174,11 @@ So we have agents calling agents calling agents - a deep chain of automation. Ea
 
 # do-todo Agent in Action
 
-<div style="text-align: center;">
+<p align="center">
 
 ![height:450px](screenshots/do-todo-agent-execution.png)
 
-</div>
+</p>
 
 <!--
 This is the console output from one run of `/todo-all`. What you're seeing at the top level is the repeated invocations of just the `do-todo` subagent - it ran multiple times, once for each task in my todo list.
@@ -192,11 +192,11 @@ Look at the timestamps - each task took between 2 to 10 minutes. This is just a 
 
 # Agent Chain Execution
 
-<div style="text-align: center;">
+<p align="center">
 
 ![width:900px](screenshots/agent-chain-execution.png)
 
-</div>
+</p>
 
 <!--
 An easy way to demonstrate the nested output is to prompt Claude to complete a single task without using a subagent, either by just pasting in the text or using the same prompt as a slash command.
@@ -208,11 +208,11 @@ Here we see the sequential execution of `comment-cleaner`, `precommit-runner`, `
 
 # Claude Working Autonomously
 
-<div style="text-align: center;">
+<p align="center">
 
 ![width:900px](screenshots/statusline-cost-tracking.png)
 
-</div>
+</p>
 
 <!--
 This is a screenshot of my Claude Code statusline. Configuring a statusline is a topic for another day, but I have all sorts of information displayed here - token usage, costs, model being used, and session metrics.
@@ -226,11 +226,11 @@ This is the game we play these days: we try to get Claude Code to run for as lon
 
 # Screenshot: Context Usage Display
 
-<div style="text-align: center;">
+<p align="center">
 
 ![width:1000px](screenshots/context-usage-display.png)
 
-</div>
+</p>
 
 <!--
 Shows Claude Code's context usage breakdown - system prompt, tools, agents, messages, and free space. Illustrates context management benefits.
