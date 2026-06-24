@@ -3,10 +3,27 @@
 default:
     @just --list --unsorted
 
-# `npm install`
+ci := env("CI", "")
+
+# Install dependencies
 [group('setup')]
 install:
-    npm install
+    vp install
+
+# Run formatter
+[group('quality')]
+format: install
+    vp fmt {{ if ci != "" { "--check" } else { "" } }}
+
+# Run checks (format)
+[group('quality')]
+check: install
+    vp check {{ if ci != "" { "" } else { "--fix" } }}
+
+# Run markdownlint
+[group('quality')]
+markdownlint: install
+    vp exec markdownlint-cli2
 
 # Build specific presentation (default format: html)
 [group('build')]
@@ -39,7 +56,6 @@ dev PRESENTATION: install
 [group('dev')]
 dev-all: install
     npx marp --theme-set presentations/themes --server --watch --html presentations
-
 
 # Generate index page for all presentations in dist
 [group('build')]
@@ -96,24 +112,15 @@ dist: (build-all "html") (build-all "pdf") index
         echo "Copied themes to dist/"
     fi
 
+# Run pre-commit hooks on all files (same as CI's pre-commit job)
 [group('quality')]
-precommit: install
-    #!/usr/bin/env bash
-    set -euo pipefail
-    echo "Running precommit checks..."
+pre-commit: install
+    pre-commit run --all-files
 
-    # Build all presentations to verify they compile
-    echo "Building all presentations..."
-    mkdir -p dist
-    for file in presentations/*.md; do
-        if [ -f "$file" ]; then
-            base=$(basename "$file")
-            echo "  - Building $base"
-            npx marp "$file" --theme-set presentations/themes --output "dist/${base%.md}.html" --no-stdin
-        fi
-    done
-
-    echo "All precommit checks passed!"
+# Run all pre-commit checks
+[group('quality')]
+precommit: check markdownlint build-all pre-commit
+    @echo "All pre-commit checks passed!"
 
 [group('clean')]
 clean:
