@@ -12,6 +12,11 @@ dist/
 # Logs
 *.log
 npm-debug.log*
+pnpm-debug.log*
+
+# Vite+
+/.vite/
+.fallow/
 
 # OS files
 .DS_Store
