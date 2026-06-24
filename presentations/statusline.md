@@ -5,6 +5,7 @@ paginate: true
 ---
 
 # Claude Code Status Line
+
 ## Real-time Terminal Monitoring
 
 <!--
@@ -40,6 +41,7 @@ I can't believe the pace at which they release things. If you look at the change
 Real-time context monitoring in your terminal
 
 Two customizable status lines:
+
 - **Line 1**: Claude Powerline - Git info, context window, version
 - **Line 2**: CC Usage - Cost tracking by session/day/month
 
@@ -48,6 +50,7 @@ Two customizable status lines:
 # Why Status Line?
 
 ## Key benefits:
+
 - 👀 **Visibility**: Always see context usage
 - 💰 **Cost awareness**: Track spending in real-time
 - 🔄 **Session info**: Know your model and version
@@ -60,11 +63,13 @@ Two customizable status lines:
 ## Two approaches:
 
 ### 1. Slash command (recommended for setup)
+
 ```bash
 /statusline
 ```
 
 ### 2. Manual configuration
+
 Edit `~/.zshrc` or `~/.bashrc`
 
 ---
@@ -77,6 +82,7 @@ statusLine.command "claude status-line"
 ```
 
 Or for combined output:
+
 ```bash
 statusLine.command "bash ~/.claude/status-line.sh"
 ```
@@ -86,6 +92,7 @@ statusLine.command "bash ~/.claude/status-line.sh"
 # Status Line Components
 
 ## Available information:
+
 - 📁 Working directory
 - 🤖 Current model (Opus, Sonnet, etc.)
 - 📊 Context usage (tokens & percentage)
@@ -148,6 +155,7 @@ echo "$INPUT" | cc-usage status-line \
 # JSON Input Structure
 
 Status line receives JSON with:
+
 - `directory`: Current working directory
 - `model`: Active Claude model
 - `context`: Token usage info
@@ -178,6 +186,7 @@ show_ahead_behind = true
 # Customization: CC Usage
 
 Flags for different views:
+
 - `--session`: Current session cost
 - `--day`: Today's total
 - `--month`: Monthly total
@@ -214,6 +223,7 @@ Helps optimize model selection
 # Version Awareness
 
 Why track version?
+
 - Claude Code updates **daily**
 - Features change rapidly
 - Long-running tabs may be outdated
@@ -239,6 +249,7 @@ claude --version
 # Advanced: Multiple Projects
 
 Status line updates per terminal tab:
+
 - Different projects = different contexts
 - Cost tracking per session
 - Git info follows directory
@@ -290,6 +301,7 @@ Keeps info visible in multiplexers
 # CC Usage Beyond Status Line
 
 Standalone cost analysis:
+
 ```bash
 # Detailed cost breakdown
 cc-usage
@@ -306,6 +318,7 @@ cc-usage --days 7
 # Future Enhancements
 
 Coming soon:
+
 - 🎯 Custom metrics
 - 📈 Usage graphs
 - 🔔 Alert thresholds
@@ -324,6 +337,7 @@ Coming soon:
 # Questions?
 
 ## Key takeaways:
+
 - 📊 Real-time monitoring improves awareness
 - 💰 Cost tracking prevents surprises
 - 🎨 Highly customizable to your needs

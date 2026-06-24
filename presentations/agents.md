@@ -5,6 +5,7 @@ paginate: true
 ---
 
 # `/agents`
+
 ## Claude Code Subagents
 
 Craig Motlin
@@ -40,8 +41,8 @@ My primary goal is to get you using subagents effectively. Since I'm still disco
 - **Claude Code User**: Since developer preview
 - **Heavy Usage**: Anthropic changed usage caps for users like me
 - **Sharing Knowledge**:
-  - Blog: [motlin.com/blog/tags/claude-code](https://motlin.com/blog/tags/claude-code)
-  - Config: [github.com/motlin/claude-code-prompts](https://github.com/motlin/claude-code-prompts)
+    - Blog: [motlin.com/blog/tags/claude-code](https://motlin.com/blog/tags/claude-code)
+    - Config: [github.com/motlin/claude-code-prompts](https://github.com/motlin/claude-code-prompts)
 
 <!--
 So why am I (Craig) talking to you about Claude code today?
@@ -61,6 +62,7 @@ I also write about these topics on my blog and I share my configuration on GitHu
 # Example: My Todo Workflow
 
 I keep a markdown todo list in `.llm/todo.md`:
+
 ```markdown
 - [ ] Add user authentication
 - [ ] Fix navigation bug
@@ -68,6 +70,7 @@ I keep a markdown todo list in `.llm/todo.md`:
 ```
 
 One command processes my entire list:
+
 ```bash
 /todo-all
 ```
@@ -83,8 +86,8 @@ Here's the core of my workflow with Claude Code. I write a markdown todo list in
 A summarized version of the slash command's prompt:
 
 1. Find whether there is an incomplete task
-   - Run `todo-get $(git rev-parse --show-toplevel)/.llm/todo.md`
-   - It returns the first `Not started` task
+    - Run `todo-get $(git rev-parse --show-toplevel)/.llm/todo.md`
+    - It returns the first `Not started` task
 
 2. Launch the `do-todo` agent to implement it
 
@@ -118,10 +121,10 @@ A summarized version of the agent's prompt:
 2. Implement the task
 3. Ignore all other tasks in the `.llm/todo.md` file or TODOs in the source code
 4. When a code change is ready, and we are about to return control to the user, do these things in order:
-   - Remove obvious comments using the `@comment-cleaner` agent
-   - Verify the build passes using the `@precommit-runner` agent
-   - Commit to git using the `@git-commit-handler` agent
-   - Rebase on top of the upstream branch with the `@git-rebaser` agent
+    - Remove obvious comments using the `@comment-cleaner` agent
+    - Verify the build passes using the `@precommit-runner` agent
+    - Commit to git using the `@git-commit-handler` agent
+    - Rebase on top of the upstream branch with the `@git-rebaser` agent
 5. Run `todo-complete $(git rev-parse --show-toplevel)/.llm/todo.md` to mark the task as completed
 
 </div>
@@ -280,11 +283,13 @@ I just showed what I use sub-agents for - my todo workflow and side quests. But 
 # Anthropic's Documentation
 
 Example agents:
+
 - Code reviewer: "senior code reviewer"
 - Debugger: "expert debugger"
 - Data scientist: "data scientist"
 
 Personification:
+
 - Anthropic uses personification patterns
 - Not clear why sub-agents are needed for these roles
 - Seems like regular prompting would work
@@ -298,11 +303,13 @@ Anthropic's examples include code reviewer, debugger, data scientist. They use t
 # What Are Subagents Good For?
 
 ## 1. Context Management
+
 - **Problem**: Simple commands → Huge console output → Context pollution
 - **Solution**: Separate context windows for each agent
 - **Result**: Work longer without compacting
 
 ## 2. Working Independently
+
 - Claude Code works for longer durations
 - Less frequent human involvement needed
 - Parallel task execution
@@ -323,7 +330,7 @@ The main advantage is context management. Especially the test runner - it's a si
 ---
 name: your-agent-name
 description: When this agent should be invoked
-tools: tool1, tool2, tool3  # Optional
+tools: tool1, tool2, tool3 # Optional
 ---
 
 Your agent's system prompt goes here.
@@ -334,10 +341,10 @@ Include specific instructions and constraints.
 
 # Agent File Locations
 
-| Type | Location | Scope |
-|------|----------|-------|
-| **Project** | `.claude/agents/` | Current project only |
-| **User** | `~/.claude/agents/` | All projects |
+| Type        | Location            | Scope                |
+| ----------- | ------------------- | -------------------- |
+| **Project** | `.claude/agents/`   | Current project only |
+| **User**    | `~/.claude/agents/` | All projects         |
 
 Project agents take precedence over user agents
 
