@@ -56,7 +56,7 @@ just            # List all available commands
 
 ## 📁 Project Structure
 
-```
+```text
 marp/
 ├── presentations/
 │   ├── agents.md

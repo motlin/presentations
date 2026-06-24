@@ -3,5 +3,7 @@
 // Docs: https://github.com/DavidAnson/markdownlint-cli2#configuration
 {
 	"globs": ["**/*.md"],
-	"ignores": ["**/node_modules/**", ".llm/**", ".claude/**", "dist/**", "CLAUDE.md"],
+	// Marp slide decks under presentations/ legitimately use one H1 per slide,
+	// inline HTML, and punctuated slide titles, which conflict with prose rules.
+	"ignores": ["**/node_modules/**", ".llm/**", ".claude/**", "dist/**", "presentations/**", "CLAUDE.md"],
 }

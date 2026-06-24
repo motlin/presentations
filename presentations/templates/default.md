@@ -5,6 +5,7 @@ paginate: true
 ---
 
 # Presentation Title
+
 ## Subtitle
 
 Author Name
@@ -12,6 +13,7 @@ Author Name
 <!--
 This presentation uses the Anthropic theme, a custom theme based on Anthropic's documentation styles.
 -->
+
 Date
 
 ---
