@@ -16,7 +16,7 @@
 	},
 	"devDependencies": {
 		"@marp-team/marp-cli": "^4.2.3",
-		"markdownlint-cli2": "^0.22.1",
+		"markdownlint-cli2": "^0.23.0",
 		"vite": "catalog:",
 		"vite-plus": "catalog:"
 	},
