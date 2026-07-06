@@ -15,7 +15,7 @@
 		"prepare": "vp config"
 	},
 	"devDependencies": {
-		"@marp-team/marp-cli": "^4.2.3",
+		"@marp-team/marp-cli": "^4.4.1",
 		"markdownlint-cli2": "^0.23.0",
 		"vite": "catalog:",
 		"vite-plus": "catalog:"
