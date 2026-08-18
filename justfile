@@ -26,32 +26,36 @@ markdownlint: install
     vp exec markdownlint-cli2
 
 # Build specific presentation (default format: html)
+[arg("FORMAT", long="format", help="Output format")]
+[arg("PRESENTATION", long="presentation", help="Presentation name")]
 [group('build')]
 build PRESENTATION FORMAT='html': install
     #!/usr/bin/env bash
     set -euo pipefail
     mkdir -p dist
-    base=$(basename "{{PRESENTATION}}")
-    output="dist/${base%.md}.{{FORMAT}}"
-    npx marp "{{PRESENTATION}}" --theme-set presentations/themes --output "$output" --no-stdin
+    base=$(basename "{{ PRESENTATION }}")
+    output="dist/${base%.md}.{{ FORMAT }}"
+    npx marp "{{ PRESENTATION }}" --theme-set presentations/themes --output "$output" --no-stdin
 
 # Build all presentations (default format: html)
+[arg("FORMAT", long="format", help="Output format")]
 [group('build')]
 build-all FORMAT='html': install
     #!/usr/bin/env bash
     set -euo pipefail
     mkdir -p dist
-    echo "Building presentations to dist/ as {{FORMAT}}..."
+    echo "Building presentations to dist/ as {{ FORMAT }}..."
     for file in presentations/*.md; do
         base=$(basename "$file")
         echo "  - Building $base"
-        output="dist/${base%.md}.{{FORMAT}}"
+        output="dist/${base%.md}.{{ FORMAT }}"
         npx marp "$file" --theme-set presentations/themes --output "$output" --no-stdin
     done
 
+[arg("PRESENTATION", long="presentation", help="Presentation name")]
 [group('dev')]
 dev PRESENTATION: install
-    npx marp {{PRESENTATION}} --theme-set presentations/themes --server --watch --html
+    npx marp {{ PRESENTATION }} --theme-set presentations/themes --server --watch --html
 
 [group('dev')]
 dev-all: install
@@ -83,8 +87,8 @@ index:
                 title="$filename"
             fi
             # Use the presentation template and replace placeholders
-            sed -e "s|{{"{{TITLE}}"}}|$title|g" \
-                -e "s|{{"{{FILENAME}}"}}|$filename|g" \
+            sed -e "s|{{ "{{TITLE}}" }}|$title|g" \
+                -e "s|{{ "{{FILENAME}}" }}|$filename|g" \
                 templates/presentation-item.html >> dist/index.html
         fi
     done

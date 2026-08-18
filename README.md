@@ -20,7 +20,7 @@ just
 just dev-all
 
 # Start development server for a specific presentation
-just dev presentations/agents.md
+just dev --presentation presentations/agents.md
 
 # Build all presentations to HTML
 just build-all
@@ -31,17 +31,17 @@ just build-all
 ### Development
 
 ```bash
-just dev PRESENTATION  # Dev mode with live reload for specific presentation
+just dev --presentation PRESENTATION  # Dev mode with live reload for specific presentation
 just dev-all          # Dev mode for all presentations
 ```
 
 ### Building
 
 ```bash
-just build PRESENTATION         # Build specific presentation to HTML
-just build PRESENTATION pdf     # Build specific presentation to PDF
+just build --presentation PRESENTATION                # Build specific presentation to HTML
+just build --presentation PRESENTATION --format pdf   # Build specific presentation to PDF
 just build-all                  # Build all presentations to HTML
-just build-all pdf              # Build all presentations to PDF
+just build-all --format pdf     # Build all presentations to PDF
 just dist                       # Build all formats (HTML and PDF) to dist/
 ```
 
