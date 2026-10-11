@@ -12,7 +12,7 @@
 		"serve": "marp claude-code-presentation.md --html --server",
 		"fmt": "vp fmt",
 		"fmt:ci": "vp fmt --check",
-		"prepare": "vp config"
+		"prepare": "VITE_GIT_HOOKS=0 vp config"
 	},
 	"devDependencies": {
 		"@marp-team/marp-cli": "^4.5.1",
