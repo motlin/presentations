@@ -14,7 +14,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&display=swap');
 
 /* ===== Color Palette ===== */
-:root {
+:root
+{
 	/* Anthropic Brand Colors */
 	--anthropic-orange: #d4a27f;
 	--anthropic-dark: #0e0e0e;
@@ -51,7 +52,8 @@
 }
 
 /* ===== Typography ===== */
-section {
+section
+{
 	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 	color: var(--text-primary);
 	background: var(--surface-primary);
@@ -63,12 +65,14 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6
+{
 	font-family: 'Space Grotesk', 'Inter', sans-serif;
 	color: var(--anthropic-dark);
 }
 
-h1 {
+h1
+{
 	background: linear-gradient(135deg, var(--anthropic-dark) 0%, var(--anthropic-orange) 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -76,18 +80,21 @@ h1 {
 }
 
 /* Fix for code elements inside h1 headings */
-h1 code {
+h1 code
+{
 	background: none;
 	border: none;
 	-webkit-text-fill-color: inherit;
 }
 
-h2 {
+h2
+{
 	color: var(--anthropic-dark);
 }
 
 /* ===== Code Styling ===== */
-code {
+code
+{
 	font-family: 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
 	background: var(--code-background);
 	color: var(--code-text);
@@ -95,7 +102,8 @@ code {
 	border-radius: 4px;
 }
 
-pre {
+pre
+{
 	background: var(--code-background);
 	border: 1px solid var(--code-border);
 	border-radius: 8px;
@@ -104,103 +112,123 @@ pre {
 		0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-pre code {
+pre code
+{
 	background: transparent;
 	border: none;
 	box-shadow: none;
 }
 
 /* ===== Lists ===== */
-ul li::marker {
+ul li::marker
+{
 	color: var(--anthropic-orange);
 }
 
 /* ===== Blockquotes ===== */
-blockquote {
+blockquote
+{
 	border-left: 4px solid var(--anthropic-orange);
 	background: var(--surface-secondary);
 	border-radius: 0 8px 8px 0;
 }
 
-blockquote p {
+blockquote p
+{
 	color: var(--text-secondary);
 	font-style: italic;
 	font-family: 'Source Serif 4', 'Georgia', serif;
 }
 
 /* ===== Tables ===== */
-table {
+table
+{
 	background: var(--surface-primary);
 }
 
-th {
+th
+{
 	background: var(--surface-secondary);
 	color: var(--text-primary);
 	border: 1px solid var(--border-medium);
 }
 
-td {
+td
+{
 	border: 1px solid var(--border-light);
 	color: var(--text-primary);
 }
 
-tr:nth-child(even) {
+tr:nth-child(even)
+{
 	background: var(--surface-secondary);
 }
 
 /* ===== Links ===== */
-a {
+a
+{
 	color: var(--accent-blue);
 	text-decoration: none;
 	border-bottom: 1px solid transparent;
 	transition: all 0.2s ease;
 }
 
-a:hover {
+a:hover
+{
 	color: var(--anthropic-orange);
 	border-bottom-color: var(--anthropic-orange);
 }
 
 /* ===== Emphasis ===== */
-strong {
+strong
+{
 	color: var(--anthropic-dark);
 }
 
-em {
+em
+{
 	color: var(--text-secondary);
 }
 
 /* ===== Special Elements ===== */
-.highlight {
+.highlight
+{
 	background: linear-gradient(135deg, var(--anthropic-orange) 0%, #f4d03f 100%);
 	color: var(--anthropic-dark);
 	border-radius: 4px;
 }
 
 /* Badge-style elements */
-.badge {
+.badge
+{
 	background: var(--anthropic-orange);
 	color: var(--anthropic-dark);
 	border-radius: 1rem;
 }
 
 /* Status indicators */
-.success {
+.success
+{
 	color: var(--accent-green);
 }
-.warning {
+.warning
+{
 	color: #f59e0b;
 }
-.error {
+.error
+{
 	color: var(--accent-red);
 }
-.info {
+.info
+{
 	color: var(--accent-blue);
 }
 
 /* ===== Dark Mode Support ===== */
-@media (prefers-color-scheme: dark) {
-	:root {
+@media (prefers-color-scheme: dark)
+{
+	:root
+	{
 		--surface-primary: var(--anthropic-background-dark);
 		--surface-secondary: #1a1a1d;
 		--surface-tertiary: #2e2e32;
@@ -215,7 +243,8 @@ em {
 		--border-strong: #5e5e62;
 	}
 
-	section {
+	section
+	{
 		background: var(--surface-primary);
 		color: var(--text-primary);
 	}
@@ -225,18 +254,21 @@ em {
 	h3,
 	h4,
 	h5,
-	h6 {
+	h6
+	{
 		color: var(--text-primary);
 	}
 
-	h1 {
+	h1
+	{
 		background: linear-gradient(135deg, #ffffff 0%, var(--anthropic-orange) 100%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 	}
 
-	strong {
+	strong
+	{
 		color: var(--text-primary);
 	}
 }
