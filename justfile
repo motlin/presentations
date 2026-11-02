@@ -14,9 +14,9 @@ install:
 [group('quality')]
 format: install
     pre-commit run just-fmt --all-files
-    vp fmt {{ if ci != "" { "--check" } else { "" } }}
+    oxfmt-next-line {{ if ci != "" { "--check" } else { "" } }}
 
-# Run checks (format)
+# Run checks (lint; formatting is `just format`)
 [group('quality')]
 check: install
     vp check {{ if ci != "" { "" } else { "--fix" } }}

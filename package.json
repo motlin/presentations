@@ -3,18 +3,20 @@
 	"version": "1.0.0",
 	"description": "Claude Code presentation using Marp",
 	"type": "module",
-	"scripts": {
+	"scripts":
+	{
 		"preinstall": "npx only-allow pnpm",
 		"build": "marp claude-code-presentation.md --html",
 		"build:pdf": "marp claude-code-presentation.md --pdf",
 		"build:pptx": "marp claude-code-presentation.md --pptx",
 		"watch": "marp claude-code-presentation.md --html --watch",
 		"serve": "marp claude-code-presentation.md --html --server",
-		"fmt": "vp fmt",
-		"fmt:ci": "vp fmt --check",
+		"fmt": "oxfmt-next-line",
+		"fmt:ci": "oxfmt-next-line --check",
 		"prepare": "VITE_GIT_HOOKS=0 vp config"
 	},
-	"devDependencies": {
+	"devDependencies":
+	{
 		"@marp-team/marp-cli": "^4.5.1",
 		"markdownlint-cli2": "^0.23.3",
 		"vite": "catalog:",
